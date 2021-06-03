@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:testapp2/core/data/shared_data.dart';
 
 enum MyRoutes { first, second, third }
 
@@ -34,12 +34,5 @@ class MyRouteInformationParser extends RouteInformationParser<MyRoutes> {
         return const RouteInformation(location: '/third');
     }
     // throw 'unknown';
-  }
-
-  setLastRoute(int visitedRoute, String location) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('Called Method to record last route. $location');
-    await prefs.setString('location', location);
-    await prefs.setInt('LastRoute', visitedRoute);
   }
 }

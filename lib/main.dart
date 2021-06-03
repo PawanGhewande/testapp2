@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import 'core/data/shared_data.dart';
 import 'core/navigation/my_route_delegate.dart';
 import 'core/navigation/my_route_informtion_parser.dart';
 
@@ -25,19 +25,17 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    checkLastRoute()
-        .then((value) => _delegate.configuration = MyRoutes.values[value]);
+    isRemembred().then((value) {
+      if (value) {
+        checkLastRoute()
+            .then((value) => _delegate.configuration = MyRoutes.values[value]);
+      }
+    });
+
     return MaterialApp.router(
       title: 'Navigator 2.0',
       routeInformationParser: _myRouteParser,
       routerDelegate: _delegate,
     );
-  }
-
-  Future<int> checkLastRoute() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    int index = (prefs.getInt('LastRoute') ?? 0);
-    print(index);
-    return index;
   }
 }
