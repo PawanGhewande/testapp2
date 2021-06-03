@@ -38,7 +38,7 @@ class MyRouteInformationParser extends RouteInformationParser<MyRoutes> {
 
   setLastRoute(int visitedRoute, String location) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('Called Method to record last route.');
+    print('Called Method to record last route. $location');
     await prefs.setString('location', location);
     await prefs.setInt('LastRoute', visitedRoute);
   }

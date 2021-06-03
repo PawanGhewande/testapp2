@@ -15,21 +15,18 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   /// This widget is the root of your application.
-  final MyRouterDelegate _delegate = MyRouterDelegate();
+  MyRouterDelegate _delegate = MyRouterDelegate();
   final MyRouteInformationParser _myRouteParser = MyRouteInformationParser();
-  var lastLocation;
 
   @override
   void initState() {
     super.initState();
-    // checkLastRoute();
-    _delegate.setInitialRoutePath(MyRoutes.values[1]);
-    // print('data {$lastLocation}');
-    // _myRouteParser.parseRouteInformation(RouteInformation(location: ));
   }
 
   @override
   Widget build(BuildContext context) {
+    checkLastRoute()
+        .then((value) => _delegate.configuration = MyRoutes.values[value]);
     return MaterialApp.router(
       title: 'Navigator 2.0',
       routeInformationParser: _myRouteParser,
@@ -37,15 +34,10 @@ class MyAppState extends State<MyApp> {
     );
   }
 
-  checkLastRoute() async {
+  Future<int> checkLastRoute() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int index = (prefs.getInt('LastRoute') ?? 0);
     print(index);
-    // return index;
-    // (Router.of(context).routerDelegate as MyRouterDelegate).configuration =
-    //     index as MyRoutes;
-    String location = (prefs.getString('location') ?? '/');
-    print(location);
-    //return location;
+    return index;
   }
 }
