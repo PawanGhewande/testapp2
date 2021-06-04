@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 import 'core/data/shared_data.dart';
 import 'core/navigation/my_route_delegate.dart';

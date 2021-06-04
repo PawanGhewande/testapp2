@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testapp2/core/navigation/my_route_delegate.dart';
-import 'package:testapp2/core/navigation/my_route_informtion_parser.dart';
+import '../core/navigation/my_route_delegate.dart';
+import '../core/navigation/my_route_informtion_parser.dart';
 
 class SecondPage extends StatelessWidget {
   @override

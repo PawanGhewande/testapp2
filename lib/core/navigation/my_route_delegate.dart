@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:testapp2/core/navigation/my_route_informtion_parser.dart';
 import 'package:testapp2/screens/first_page.dart';
 import 'package:testapp2/screens/second_page.dart';
-import 'package:testapp2/screens/third_page.dart';
+import 'package:testapp2/screens/third_page/presesntation/third_page.dart';
 
 class MyRouterDelegate extends RouterDelegate<MyRoutes>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<MyRoutes> {
