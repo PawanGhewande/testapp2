@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 import 'core/data/shared_data.dart';
 import 'core/navigation/my_route_delegate.dart';
@@ -36,6 +37,13 @@ class MyAppState extends State<MyApp> {
       title: 'Navigator 2.0',
       routeInformationParser: _myRouteParser,
       routerDelegate: _delegate,
+      theme: ThemeData(
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      themeMode: ThemeMode.system,
     );
   }
 }

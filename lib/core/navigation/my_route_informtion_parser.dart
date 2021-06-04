@@ -7,7 +7,7 @@ class MyRouteInformationParser extends RouteInformationParser<MyRoutes> {
   @override
   Future<MyRoutes> parseRouteInformation(
       RouteInformation routeInformation) async {
-    print('STATE OF APPS :: ${routeInformation.state}');
+    //print('STATE OF APPS :: ${routeInformation.state}');
     switch (routeInformation.location) {
       case "/":
         return MyRoutes.first;
