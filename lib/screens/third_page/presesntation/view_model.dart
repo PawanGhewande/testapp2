@@ -15,10 +15,11 @@ class NotificationBLoC {
       FlutterLocalNotificationsPlugin flip =
           new FlutterLocalNotificationsPlugin();
 
-      var android = new AndroidInitializationSettings('@mipmap/ic_launcher');
-      var IOS = new IOSInitializationSettings();
+      final AndroidInitializationSettings android =
+          new AndroidInitializationSettings('@mipmap/ic_launcher');
+      final IOSInitializationSettings ios = new IOSInitializationSettings();
 
-      var settings = new InitializationSettings(android: android, iOS: IOS);
+      var settings = new InitializationSettings(android: android, iOS: ios);
       flip.initialize(settings);
       _showNotificationWithDefaultSound(flip, event.title, event.content);
     });

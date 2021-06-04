@@ -49,7 +49,6 @@ class _ThirdPageState extends State<ThirdPage> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: TextButton(
-                    
                       onPressed: () {
                         bloc.notiSink.add(new NotiModel(
                             title: _titleController.text,
